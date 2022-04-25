@@ -18,8 +18,9 @@ class AboutScene: SKScene {
         let button = ButtonNode(defaultTexture: "BackButtonDefault", pressedTexture: "BackButtonPressed") { [self] in
             view?.presentScene(MainMenuScene.newScene())
         }
+        button.anchorPoint = CGPoint(x: 0, y: 1)
         
-        button.position = CGPoint(x: 32, y: size.height-32)
+        button.position = CGPoint(x: 32, y: size.height-24)
         
         return button
     }()
@@ -29,7 +30,7 @@ class AboutScene: SKScene {
         sprite.anchorPoint = CGPoint(x: 0, y: 1)
         sprite.setScale(2)
         
-        sprite.position = CGPoint(x: 32, y: backButton.position.y-32)
+        sprite.position = CGPoint(x: 32, y: size.height-64)
         
         return sprite
     }()
@@ -291,7 +292,7 @@ class AboutScene: SKScene {
     
     func setUpScene() {
         view?.ignoresSiblingOrder = true
-        backgroundColor = .black
+        backgroundColor = UIColor(white: 1/12, alpha: 1)
         
         addChild(profile)
         addChild(backButton)

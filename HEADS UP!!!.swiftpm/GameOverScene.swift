@@ -125,6 +125,10 @@ class GameOverScene: SKScene {
         if GameController.shared.highscore > 0 {
             addChild(highscoreLabel)
         }
+        
+        if !GameController.shared.isSfxMuted {
+            run(.playSoundFileNamed("GameOver.wav", waitForCompletion: false))
+        }
     }
     
     override func didMove(to view: SKView) {

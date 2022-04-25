@@ -65,6 +65,22 @@ class MainMenuScene: SKScene {
         
         return label
     }()
+    lazy var toggleSfx: ToggleNode = {
+        let button = ToggleNode(status: !GameController.shared.isSfxMuted, defaultTextureOn: "SoundOnButtonDefault", pressedTextureOn: "SoundOnButtonPressed", defaultTextureOff: "SoundOffButtonDefault", pressedTextureOff: "SoundOffButtonPressed") {
+            GameController.shared.isSfxMuted = false
+            UserDefaults().set(false, forKey: "isSfxMuted")
+            print("Sound ON")
+        } actionOff: {
+            GameController.shared.isSfxMuted = true
+            UserDefaults().set(true, forKey: "isSfxMuted")
+            print("Sound OFF")
+        }
+        button.anchorPoint = CGPoint(x: 1, y: 1)
+
+        button.position = CGPoint(x: size.width-32, y: size.height-24)
+        
+        return button
+    }()
     
     func setUpScene() {
         view?.ignoresSiblingOrder = true
@@ -76,6 +92,7 @@ class MainMenuScene: SKScene {
         if GameController.shared.highscore > 0 {
             addChild(highscoreLabel)
         }
+        addChild(toggleSfx)
     }
     
     override func didMove(to view: SKView) {

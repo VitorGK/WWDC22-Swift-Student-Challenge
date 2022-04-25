@@ -30,6 +30,9 @@ class ButtonNode: SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.run(.setTexture(pressedTexture))
+        if !GameController.shared.isSfxMuted {
+            self.run(.playSoundFileNamed("ButtonPressed.wav", waitForCompletion: false))
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,6 +41,12 @@ class ButtonNode: SKSpriteNode {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.run(.setTexture(defaultTexture))
-        action()
+        if !GameController.shared.isSfxMuted {
+            self.run(.playSoundFileNamed("ButtonReleased.wav", waitForCompletion: false)) { [self] in
+                action()
+            }
+        } else {
+            action()
+        }
     }
 }

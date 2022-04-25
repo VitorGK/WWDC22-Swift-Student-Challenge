@@ -23,7 +23,9 @@ class GameController {
     var currentScore: Int = 0
     
     var initialMoveSpeed: TimeInterval = 6
-    var enemySpawnRate: TimeInterval = 3
+    var enemySpawnRate: TimeInterval = 2
+    
+    var isSfxMuted: Bool = UserDefaults().bool(forKey: "isSfxMuted")
     
     private init() {}
     
@@ -45,6 +47,6 @@ class GameController {
     
     func resetGame() {
         initialMoveSpeed = 6
-        enemySpawnRate = 3
+        enemySpawnRate = 2
     }
 }
