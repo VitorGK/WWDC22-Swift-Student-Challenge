@@ -1,6 +1,6 @@
 # WWDC22 Swift Student Challenge - HEADS UP!!!
 
- HEADS UP!!! - A hyper casual game where the main goal is to save the Earth from incoming space treats
+ HEADS UP!!! - A hyper casual game where the main goal is to save the Earth from incoming space threats
 
 # About the game
 
