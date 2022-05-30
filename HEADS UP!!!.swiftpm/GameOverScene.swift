@@ -39,7 +39,7 @@ class GameOverScene: SKScene {
     }()
     lazy var gameOverLabel1: SKLabelNode = {
         let label = SKLabelNode(attributedText: NSAttributedString(
-            string: "SPACE TREATS",
+            string: "SPACE THREATS",
             attributes: [
                 .font: UIFont.monospacedSystemFont(ofSize: 64, weight: .regular),
                 .foregroundColor: UIColor.white
